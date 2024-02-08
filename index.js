@@ -6,7 +6,7 @@ const watchlistMoviesEl = document.getElementById('watchlist-listed-movies')
 
 let moviesArr = []
 
-let watchlist = []
+let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
 
 if (searchBtn) {searchBtn.addEventListener('click', searchMovies)}
 
@@ -17,7 +17,7 @@ document.addEventListener('click', e => {
     console.log(e.target.dataset.id)
     watchlist.push(localStorage.getItem(e.target.dataset.id))
     // }
-    localStorage.setItem('watchlist', watchlist)
+    localStorage.setItem('watchlist', JSON.stringify(watchlist))
     console.log(localStorage.getItem('watchlist'))
     console.log(watchlist)
     }

@@ -1,12 +1,13 @@
 const watchlistMoviesEl = document.getElementById('watchlist-listed-movies')
 
 function renderWatchlist(){
-    const data = localStorage.getItem('watchlist')
+    const data = JSON.parse(localStorage.getItem('watchlist'))
     console.log(data)
-    watchlistMoviesEl.innerHTML =`
+    for (let movie of data) {
+        watchlistMoviesEl.innerHTML += `
         <div class="movie">
         
-            <img class="poster" src="${data.Poster}">
+            <img class="poster" src="${movie.Poster}">
             <span class="title">${data.Title}</span>
             <span class="rating">
                 <span>⭐</span>${data.imdbRating}
@@ -21,5 +22,8 @@ function renderWatchlist(){
             <span class="plot">${data.Plot}</span>
         </div>
         `
+    }
 }
-renderWatchlist()
+window.onload = function () {
+    renderWatchlist();
+};
