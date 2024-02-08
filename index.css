@@ -10,6 +10,10 @@ html, body {
     font-family: 'Inter', sans-serif;
 }
 
+.hide{
+    display: none;
+}
+
 .background{
     height: 208px;
     background: black url("./images/background.png");
@@ -153,12 +157,12 @@ html, body {
     grid-area: d;
 }
 
-#add-to-watchlist{
+.add-to-watchlist{
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
-#add-to-watchlist:hover{
+.add-to-watchlist:hover{
     text-decoration: underline;
     transform: scale(1.125);
 }
