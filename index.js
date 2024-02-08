@@ -26,7 +26,7 @@ document.addEventListener('click', e => {
 
 
 function searchMovies() {
-    fetch(`http://www.omdbapi.com/?apikey=a2116ba9&s=${movieTitleSearch.value}`)
+    fetch(`https://www.omdbapi.com/?apikey=a2116ba9&s=${movieTitleSearch.value}`)
         .then(res => res.json())
         .then(data => {
 
@@ -40,7 +40,7 @@ function renderMovies(){
     localStorage.removeItem('lastSearch')
     moviesArr.forEach(id => {
     
-        fetch(`http://www.omdbapi.com/?apikey=a2116ba9&i=${id}`)
+        fetch(`https://www.omdbapi.com/?apikey=a2116ba9&i=${id}`)
             .then(res => res.json())
             .then(data => {
                 moviesList.innerHTML += `
