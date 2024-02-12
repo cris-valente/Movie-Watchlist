@@ -179,6 +179,7 @@ html, body {
     color: inherit;
     transition: color ease-out .3s;
 }
+
 .add-to-watchlist { background-image: url('./images/add.svg'); }
 .delete-from-watchlist { background-image: url('./images/remove.svg'); }
 
@@ -199,4 +200,30 @@ html, body {
 .btn-text {padding-left: .25rem;}
 button {
     font-size: 12px;
+}
+
+.msg{
+    position: fixed;
+    background-color: darkred;
+    color: white;
+    font-weight: 700;
+    position: fixed;
+    width: 500px;
+    height: 50px;
+    bottom: 5%;
+    left: 50%;
+    margin-top: -100px; /* Negative half of height. */
+    margin-left: -250px; /* Negative half of width. */
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    opacity: 80%;
+    transition: opacity .3s ease-out;
+    border-radius: 10px;
+}
+
+.fade {
+    opacity: 0%!important;
 }

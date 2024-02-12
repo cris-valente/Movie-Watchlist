@@ -3,31 +3,28 @@ const searchBtn = document.getElementById('search-btn')
 const moviesList = document.getElementById('listed-movies')
 const addToWatchlistBtn = document.querySelectorAll('.add-to-watchlist')
 const watchlistMoviesEl = document.getElementById('watchlist-listed-movies')
+const msg = document.getElementById('msg')
 
-let moviesArr = []
-// JSON.parse(localStorage.getItem("watchlist")) || 
+let moviesArr = [] 
 let watchlist =[];
 
 if (searchBtn) {searchBtn.addEventListener('click', searchMovies)}
-
-// document.addEventListener('click', e => {
-    
-//     if (e.target.dataset.id) {
-//     // if (!watchlist.includes(localStorage.getItem(e.target.dataset.id))) {
-//     console.log(e.target.dataset.id)
-//     watchlist.push(localStorage.getItem(e.target.dataset.id))
-//     // }
-//     localStorage.setItem('watchlist', JSON.stringify(watchlist))
-//     console.log(localStorage.getItem('watchlist'))
-//     console.log(watchlist)
-//     }
-    
-// })
 
 document.addEventListener('click', e => {
     if(e.target.dataset.movie === "movie" && !watchlist.includes(e.target.dataset.id)) {
         watchlist.push(e.target.dataset.id)
         watchlistArrToLS()
+        msg.classList.remove('fade')
+        setTimeout(() => {
+            msg.classList.add('fade')
+        }, 1000);
+    }
+    else if (e.target.dataset.movie === "movie" && watchlist.includes(e.target.dataset.id)) {
+        msg.textContent = "Already added to Watchlist"
+        msg.classList.remove('fade')
+        setTimeout(() => {
+            msg.classList.add('fade')
+        }, 1000);
     }
 })
 

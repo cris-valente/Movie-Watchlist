@@ -1,5 +1,6 @@
 const watchlistMoviesEl = document.getElementById('watchlist-listed-movies')
 const search = document.getElementsByClassName('internal-link')
+const msg = document.getElementById('msg')
 
 let watchlist = []
 
@@ -8,7 +9,11 @@ document.addEventListener('click', e => {
         localStorage.removeItem(e.target.dataset.id)
         watchlist.splice(e.target.dataset.id, 1)
         renderWatchlist()
-    }
+        msg.classList.remove('fade')
+        setTimeout(() => {
+            msg.classList.add('fade')
+        }, 1000);
+    }    
 })
 
 function renderWatchlist(){
