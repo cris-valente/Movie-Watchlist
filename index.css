@@ -16,7 +16,7 @@ html, body {
 
 .background{
     height: 208px;
-    background: black url("./images/background.png");
+    background: black url("./images/kilyan-sockalingum-nW1n9eNHOsc-unsplash.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -86,8 +86,12 @@ html, body {
 
 .list {
     position: relative;
+    z-index: 1;
 }
 
+.hide {
+    display: none;
+}
 .movies-container {
     position: absolute;
     top: 25vh;
@@ -107,10 +111,10 @@ html, body {
     margin: 2rem auto;
     padding-bottom: 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: .5fr .25fr .66fr 1fr;
     grid-template-rows: auto auto auto;
     grid-template-areas: 
-    "p t t r"
+    "p t t t"
     "p ru g a"
     "p pl pl pl";
     align-items: center;
@@ -138,8 +142,14 @@ html, body {
     font-size: 12px;
 }
 
-.star{grid-area: s;}
-.rating{grid-area: r;}
+.rating{
+    color: #111827;
+    grid-area: r;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
 .runtime{grid-area: ru;}
 .genre{grid-area: g;}
 .add{grid-area: a;}
@@ -157,12 +167,36 @@ html, body {
     grid-area: d;
 }
 
-.add-to-watchlist{
+.add-to-watchlist, 
+.delete-from-watchlist {
+    
+    background-position: 0;
+    background-repeat: no-repeat;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    padding-left: 1.5rem;
+    color: inherit;
+    transition: color ease-out .3s;
 }
-.add-to-watchlist:hover{
+.add-to-watchlist { background-image: url('./images/add.svg'); }
+.delete-from-watchlist { background-image: url('./images/remove.svg'); }
+
+.add-to-watchlist:hover,
+.delete-from-watchlist:hover{
     text-decoration: underline;
     transform: scale(1.125);
+}
+
+.add-to-watchlist:active,
+.delete-from-watchlist:active {
+    color: darkred;
+}
+
+.add-to-watchlist img,
+.delete-from-watchlist img { transform: translateY(.25rem) }
+
+.btn-text {padding-left: .25rem;}
+button {
+    font-size: 12px;
 }
