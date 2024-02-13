@@ -88,7 +88,6 @@ html, body {
     position: relative;
     z-index: 1;
 }
-
 .hide {
     display: none;
 }
@@ -102,7 +101,37 @@ html, body {
     line-height: 20px;
     text-align: center;
     color: #DFDDDD
+}
 
+.transform-left {
+    margin-left: -150px;
+}
+
+.watchlist-container {
+    position: absolute;
+    width: 500px;
+    height: 100px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 100%);
+    color: #DFDDDD;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28.5px;
+    text-align: center;
+}
+
+.wl-placeholder p {
+    margin: 0;
+}
+
+.wl-placeholder a {
+    color: #363636;
+    font-weight: 700;
+    font-size: 14px;
+    background-image: url(./images/add.svg);
+    background-repeat: no-repeat;
+    padding-left: 20px;
 }
 
 .movie {

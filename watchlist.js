@@ -5,23 +5,34 @@ const msg = document.getElementById('msg')
 let watchlist = []
 
 document.addEventListener('click', e => {
-    if(e.target.dataset.movie === "movie") {
-        localStorage.removeItem(e.target.dataset.id)
-        watchlist.splice(e.target.dataset.id, 1)
+    if(e.target.id.includes('movie-')) {
+
+        localStorage.removeItem(e.target.id)
+        watchlist.splice(e.target.id, 1)
+
         renderWatchlist()
-        msg.classList.remove('fade')
-        setTimeout(() => {
-            msg.classList.add('fade')
-        }, 1000);
+        showMsg()
+       
     }    
 })
 
 function renderWatchlist(){
 
-    watchlistMoviesEl.innerHTML = ""
-
+    if (watchlist.length > 0) {watchlistMoviesEl.innerHTML = ""}
+    if (watchlist.length === 0) {watchlistMoviesEl.innerHTML = `
+    <div class="watchlist-container" id="movies-container">
+                <p class="wl-placeholder">
+                    Your watchlist is looking a little empty...
+                </p>
+                <p class="wl-placeholder">
+                <a href="./index.html">
+                    Let’s add some movies!
+                </a>
+                </p>
+            </div>`}
 
     watchlist.forEach((id, index) => {
+
         fetch(`https://www.omdbapi.com/?apikey=a2116ba9&i=${id}`)
         
             .then(res => res.json())
@@ -45,7 +56,7 @@ function renderWatchlist(){
                     </span>
                     <span class="delete">
                         <button 
-                        id="delete-from-watchlist-${id}"
+                        id="movie-${id}"
                         class="delete-from-watchlist"
                         data-movie="movie"
                         data-id="${index}">Remove</button>
@@ -61,11 +72,18 @@ function renderWatchlist(){
 
 function watchlistToLS() {
     Object.keys(localStorage).forEach(key => {
-        watchlist.push(JSON.parse(localStorage.getItem(key)))
+            if (key.includes('movie-')) {
+                watchlist.push(JSON.parse(localStorage.getItem(key)))
+        } 
+       
       });
+}
+
+function showMsg() {
+    msg.classList.remove('fade')
+    setTimeout(() => {
+        msg.classList.add('fade')
+    }, 1000);
 }
 watchlistToLS()
 renderWatchlist()
-// function lastSearchToSessionStorage(){
-//     sessionStorage.setItem('lastSearch', renderMovies())
-// }

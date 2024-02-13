@@ -6,12 +6,14 @@ const watchlistMoviesEl = document.getElementById('watchlist-listed-movies')
 const msg = document.getElementById('msg')
 
 let moviesArr = [] 
-let watchlist =[];
+let watchlist = []
 
 if (searchBtn) {searchBtn.addEventListener('click', searchMovies)}
 
 document.addEventListener('click', e => {
-    if(e.target.dataset.movie === "movie" && !watchlist.includes(e.target.dataset.id)) {
+
+    if(e.target.dataset.movie === "movie" 
+    && !watchlist.includes(e.target.dataset.id)) {
         watchlist.push(e.target.dataset.id)
         watchlistArrToLS()
         msg.classList.remove('fade')
@@ -19,7 +21,9 @@ document.addEventListener('click', e => {
             msg.classList.add('fade')
         }, 1000);
     }
-    else if (e.target.dataset.movie === "movie" && watchlist.includes(e.target.dataset.id)) {
+
+    else if (e.target.dataset.movie === "movie" 
+    && watchlist.includes(e.target.dataset.id)) {
         msg.textContent = "Already added to Watchlist"
         msg.classList.remove('fade')
         setTimeout(() => {
@@ -29,28 +33,34 @@ document.addEventListener('click', e => {
 })
 
 function watchlistArrToLS() {
-    watchlist.forEach( (movie, index) => {
-        movie = JSON.stringify(movie)
-        localStorage.setItem(index, movie)
+    watchlist.forEach( (movie) => {
+        stringifiedMovie = JSON.stringify(movie)
+        localStorage.setItem(`movie-${movie}`, stringifiedMovie)
     })
-    
 }
 
 function searchMovies() {
     fetch(`https://www.omdbapi.com/?apikey=a2116ba9&s=${movieTitleSearch.value}`)
         .then(res => res.json())
         .then(data => {
-
-            moviesArr = data.Search.map(movie => movie.imdbID)
-            renderWatchlist()
+            if (data.Response == "False") {
+                moviesList.innerHTML = `
+                <div class="movies-container transform-left">
+                    <p>Unable to find what you’re looking for.<br> Please try another search.</p>
+                </div>`
+            }
+            else {
+                moviesArr = data.Search.map(movie => movie.imdbID)
+                renderWatchlist()
+            }
+            
         })
 }
 
 function renderWatchlist(){
     
     moviesList.innerHTML = ''
-    // lastSearch = ''
-    // localStorage.removeItem('lastSearch')
+
     moviesArr.forEach(id => {
     
         fetch(`https://www.omdbapi.com/?apikey=a2116ba9&i=${id}`)
@@ -84,20 +94,8 @@ function renderWatchlist(){
                     <span class="plot">${data.Plot}</span>
                 </div>
                 `
-                // <img src="images/add.svg">
-                // lastSearch += JSON.stringify(data)
-                // localStorage.setItem(`${id}`, JSON.stringify(data))
-            //    return data
+
             })
     })
 }
-
-// function lastSearchToSessionStorage(){
-//     sessionStorage.setItem('lastSearch', renderMovies())
-// }
-
-
-// function renderSessionSearch(){
-//     moviesList.innerHTML = sessionStorage.getItem()
-// }
-
+//Session storage to store last search?
