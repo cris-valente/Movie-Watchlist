@@ -5,7 +5,7 @@
 This app uses an external API to generate movie's information after the user searchs by movie title.  
 The user can then save movie to his/her own browser local storage. The local storage gets rendered in the watchlist page.  
 
-##Features
+## Features
 * The page is responsive
 * After adding or removing movies to/from watchlist the user gets a message.
 
