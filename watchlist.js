@@ -3,22 +3,21 @@ const search = document.getElementsByClassName('internal-link')
 const msg = document.getElementById('msg')
 
 let watchlist = []
+console.log(watchlist)
 
 document.addEventListener('click', e => {
     if(e.target.id.includes('movie-')) {
 
         localStorage.removeItem(e.target.id)
         watchlist.splice(e.target.id, 1)
-
+        
         renderWatchlist()
         showMsg()
-       
     }    
 })
 
 function renderWatchlist(){
 
-    if (watchlist.length > 0) {watchlistMoviesEl.innerHTML = ""}
     if (watchlist.length === 0) {watchlistMoviesEl.innerHTML = `
     <div class="watchlist-container" id="movies-container">
                 <p class="wl-placeholder">
@@ -29,8 +28,11 @@ function renderWatchlist(){
                     Let’s add some movies!
                 </a>
                 </p>
-            </div>`}
+            </div>`
+        localStorage.clear()
+        }
 
+    else if (watchlist.length > 0) {watchlistMoviesEl.innerHTML = ""
     watchlist.forEach((id, index) => {
 
         fetch(`https://www.omdbapi.com/?apikey=a2116ba9&i=${id}`)
@@ -66,17 +68,18 @@ function renderWatchlist(){
                 </div>
                 `
             }})
-    })
+        })
+    }
 }
-
 
 function watchlistToLS() {
     Object.keys(localStorage).forEach(key => {
+
             if (key.includes('movie-')) {
                 watchlist.push(JSON.parse(localStorage.getItem(key)))
-        } 
-       
-      });
+                
+            } 
+    });
 }
 
 function showMsg() {
@@ -85,5 +88,6 @@ function showMsg() {
         msg.classList.add('fade')
     }, 1000);
 }
+
 watchlistToLS()
 renderWatchlist()
