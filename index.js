@@ -208,5 +208,6 @@ function showMsg() {
 
 // Next steps:
 
+// Making it a responsive web app
 //Session storage to store last search?
 //Use firebase to store data
