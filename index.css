@@ -71,22 +71,18 @@ html, body {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 9px 11px 9px 17px;
-    background: #F9FAFB;
+    background: #F9FAFB;    
     color: #374151;
-    cursor: pointer;
+    cursor: pointer;    
 }
 
-#search-btn:active {
-    border: inset;
-}
+#search-btn:active { border: inset; }
 
 .list {
     position: relative;
     z-index: 1;
 }
-.hide {
-    display: none;
-}
+
 .movies-container {
     position: absolute;
     top: 25vh;
@@ -99,9 +95,7 @@ html, body {
     color: #DFDDDD
 }
 
-.transform-left {
-    margin-left: -150px;
-}
+.transform-left { margin-left: -150px; }
 
 .watchlist-container {
     position: absolute;
@@ -117,9 +111,7 @@ html, body {
     text-align: center;
 }
 
-.wl-placeholder p {
-    margin: 0;
-}
+.wl-placeholder p { margin: 0; }
 
 .wl-placeholder a {
     color: #363636;
@@ -137,7 +129,7 @@ html, body {
     padding-bottom: 2rem;
     display: grid;
     grid-template-columns: .5fr .25fr .66fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: repeat(3, auto);
     grid-template-areas: 
     "p t t t"
     "p ru g a"
@@ -147,9 +139,7 @@ html, body {
     border-bottom: 1.5px #E5E7EB solid;
 }
 
-.movie:last-child{
-    border-bottom: none;
-}
+.movie:last-child{ border-bottom: none; }
 
 .poster{
     height: 147.41px;
@@ -162,17 +152,18 @@ html, body {
     font-weight: 500;
     grid-area: t;
 }
-.runtime, .genre, .add{
+.runtime, 
+.genre, 
+.add, 
+.rating{
     color: #111827;
     font-size: 12px;
 }
 
 .rating{
-    color: #111827;
-    grid-area: r;
-    font-size: 12px;
     line-height: 20px;
     font-weight: 400;
+    grid-area: r;
 }
 
 .runtime{ grid-area: ru; }
@@ -181,8 +172,8 @@ html, body {
 
 .plot {
     color: #6B7280;
-    grid-area: pl;
     font-size: 14px;
+    grid-area: pl;
 }
 
 .description {
