@@ -10,10 +10,6 @@ html, body {
     font-family: 'Inter', sans-serif;
 }
 
-.hide{
-    display: none;
-}
-
 .background{
     height: 208px;
     background: black url("./images/kilyan-sockalingum-nW1n9eNHOsc-unsplash.jpg");
@@ -179,9 +175,9 @@ html, body {
     font-weight: 400;
 }
 
-.runtime{grid-area: ru;}
-.genre{grid-area: g;}
-.add{grid-area: a;}
+.runtime{ grid-area: ru; }
+.genre{ grid-area: g; }
+.add{ grid-area: a; }
 
 .plot {
     color: #6B7280;
@@ -198,7 +194,6 @@ html, body {
 
 .add-to-watchlist, 
 .delete-from-watchlist {
-    
     background-position: 0;
     background-repeat: no-repeat;
     background-color: transparent;
@@ -219,21 +214,17 @@ html, body {
 }
 
 .add-to-watchlist:active,
-.delete-from-watchlist:active {
-    color: darkred;
-}
+.delete-from-watchlist:active { color: rgb(103, 1, 1); }
 
 .add-to-watchlist img,
 .delete-from-watchlist img { transform: translateY(.25rem) }
 
-.btn-text {padding-left: .25rem;}
-button {
-    font-size: 12px;
-}
+.btn-text { padding-left: .25rem; }
+button { font-size: 12px; }
 
 .msg{
     position: fixed;
-    background-color: darkred;
+    background-color: rgb(103, 1, 1);
     color: white;
     font-weight: 700;
     position: fixed;
@@ -248,11 +239,12 @@ button {
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    opacity: 80%;
+    opacity: 85%;
     transition: opacity .3s ease-out;
     border-radius: 10px;
+    z-index: 1;
 }
 
-.fade {
-    opacity: 0%!important;
-}
+.fade { opacity: 0%; }
+
+.hide-behind { z-index: -1; }

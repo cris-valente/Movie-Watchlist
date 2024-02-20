@@ -18,7 +18,8 @@
                 </p>
                 <p class="wl-placeholder">
                     <a href="./index.html">
-                        <img src="./images/add.svg"><span>Let’s add some movies!</span>
+                        <!-- <img src="./images/add.svg"> -->
+                        <span>Let’s add some movies!</span>
                     </a>
                 </p>
             </div>
@@ -28,6 +29,15 @@
             <span>Removed from Watchlist</span>
         </div>
 
-        <script src="watchlist.js"></script>
+        <script src="index.js"></script>
+        <script>
+            
+            window.addEventListener("load", (event) => {
+                if (watchlist.length > 0) {
+                    
+                    renderMovies(watchlist, element="watchlist")
+                }
+            });
+        </script>
     </body>
 </html>
