@@ -77,10 +77,11 @@ function renderMovies(array, element="search|watchlist"){
     }
 
     else if(element === "watchlist"){
-        // the watchlist fetch
-        
-    if (watchlist.length === 0) {watchlistMoviesEl.innerHTML = `
-    <div class="watchlist-container" id="movies-container">
+
+    // If the watchlist is empty: show empty msg
+    if (watchlist.length === 0) {
+        watchlistMoviesEl.innerHTML = `
+            <div class="watchlist-container" id="movies-container">
                 <p class="wl-placeholder">
                     Your watchlist is looking a little empty...
                 </p>
@@ -90,11 +91,11 @@ function renderMovies(array, element="search|watchlist"){
                 </a>
                 </p>
             </div>`
-        // localStorage.clear()
+        localStorage.clear()
         }
 
     else if (watchlist.length > 0) {
-
+        // the watchlist fetch
         html = ''   
         array.forEach( id => {
 
