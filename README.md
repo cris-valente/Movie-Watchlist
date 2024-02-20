@@ -15,7 +15,7 @@ The user can then save movie to his/her own browser local storage. The local sto
 * Set last search to Session storage so the user can go back to the search page and still see last results
 * Add movie's watchlist to a external database like Firebase
 
-LIVE: https://cris-movies-watchlist.netlify.app/watchlist
+LIVE: https://cris-movies-watchlist.netlify.app/
 
 ## About Scrimba
 
