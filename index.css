@@ -145,6 +145,7 @@ html, body {
 .poster{
     height: 147.41px;
     grid-area: p;
+    align-self: self-start;
 }
 
 .title{
