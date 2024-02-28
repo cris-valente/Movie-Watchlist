@@ -194,7 +194,6 @@ function watchlistToLS() {
 }
 
 watchlistToLS()
-console.log(watchlist)
 
 function showMsg() {
     msg.classList.remove('fade')
@@ -209,6 +208,5 @@ function showMsg() {
 
 // Next steps:
 
-// Making it a responsive web app
 //Session storage to store last search?
 //Use firebase to store data
