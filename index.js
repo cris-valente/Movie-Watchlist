@@ -152,6 +152,7 @@ document.addEventListener('click', e => {
 
             watchlist.push(e.target.dataset.id)
             localStorage.setItem(`movie-${e.target.dataset.id}`, e.target.dataset.id)
+            msg.textContent = "Added to Watchlist"
         }
         else{
             msg.textContent = "Already added to Watchlist"
