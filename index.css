@@ -216,10 +216,14 @@ html, body {
 button { font-size: 12px; }
 
 .msg{
+    
+    font-weight: 700;
+    font-size: 2rem;
+
     position: fixed;
     background-color: rgb(103, 1, 1);
     color: white;
-    font-weight: 700;
+    
     position: fixed;
     width: 500px;
     height: 50px;
@@ -227,15 +231,18 @@ button { font-size: 12px; }
     left: 50%;
     margin-top: -100px; /* Negative half of height. */
     margin-left: -250px; /* Negative half of width. */
+    border-radius: 10px;
+
     z-index: 2;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+
     opacity: 85%;
     transition: opacity .3s ease-out;
-    border-radius: 10px;
-    z-index: 1;
+
+
 }
 
 .fade { opacity: 0%; }
@@ -249,5 +256,15 @@ button { font-size: 12px; }
 
     .movie {
         gap: 7px;
+    }
+
+    .msg {
+        font-size: 1.45rem;
+        max-width: 90vw;
+        height: 50px;
+        bottom: 5%;
+        left: 50%;
+        margin-top: -100px; /* Negative half of height. */
+        margin-left: -45vw; /* Negative half of width. */
     }
 }
