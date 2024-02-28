@@ -26,6 +26,7 @@ html, body {
 .background h1{
     font-size: 42.79px;
     font-weight: 800;
+    margin-left: 20px;
 }
 .internal-link{
     text-decoration: none;
@@ -239,3 +240,13 @@ button { font-size: 12px; }
 .fade { opacity: 0%; }
 
 .hide-behind { z-index: -1; }
+
+@media (max-width: 420px ) {
+    .poster {
+        margin-right: 10px;
+    }
+
+    .movie {
+        gap: 7px;
+    }
+}
